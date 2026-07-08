@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CartDrawer({ 
@@ -12,6 +12,18 @@ export default function CartDrawer({
   onAddToCart
 }) {
   const [wrapProduct, setWrapProduct] = useState(false);
+
+  // Lock background body scroll when Cart Drawer is open to prevent touch/scroll conflicts
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const itemsSubtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const wrapCharge = wrapProduct ? 10 : 0;
