@@ -646,6 +646,10 @@ main {
   flex-grow: 1;
 }
 
+.product-card-attribute {
+  margin-top: auto;
+}
+
 .product-card-brand {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -3601,6 +3605,53 @@ main {
 .profile-pic-container:hover .upload-overlay {
   opacity: 1 !important;
 }
+
+/* Collapsible Footer Accordion Styles */
+.footer-toggle-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.footer-chevron {
+  display: none; /* Hidden on desktop */
+  font-size: 1.2rem;
+  color: #8c8c8c;
+  transition: transform 0.3s ease;
+}
+
+.footer-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .footer-chevron {
+    display: inline-block; /* Visible on mobile */
+  }
+
+  .footer-links-list {
+    display: none; /* Collapsed by default on mobile */
+    padding-top: 0.75rem;
+    padding-left: 0.5rem;
+  }
+
+  .footer-column.expanded .footer-links-list {
+    display: block; /* Expand list when column has .expanded class */
+  }
+
+  .footer-column {
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-column h4 {
+    margin-bottom: 0 !important;
+  }
+}
+
 
 
 

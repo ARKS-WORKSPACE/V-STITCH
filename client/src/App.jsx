@@ -80,6 +80,12 @@ export default function App() {
   const [checkoutErrors, setCheckoutErrors] = useState({});
   const [createdOrder, setCreatedOrder] = useState(null);
 
+  // Footer columns expanded state for mobile
+  const [expandedFooterCols, setExpandedFooterCols] = useState({});
+  const toggleFooterCol = (colKey) => {
+    setExpandedFooterCols(prev => ({ ...prev, [colKey]: !prev[colKey] }));
+  };
+
   // Sync cart & favorites
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -1426,8 +1432,15 @@ export default function App() {
                 </p>
               </div>
 
-              <div className="footer-column">
-                <h4 style={{ color: '#ffffff' }}>Account</h4>
+              <div className={`footer-column ${expandedFooterCols['account'] ? 'expanded' : ''}`}>
+                <h4 
+                  style={{ color: '#ffffff' }}
+                  className="footer-toggle-title"
+                  onClick={() => toggleFooterCol('account')}
+                >
+                  <span>Account</span>
+                  <i className={`ri-arrow-down-s-line footer-chevron ${expandedFooterCols['account'] ? 'rotated' : ''}`}></i>
+                </h4>
                 <ul className="footer-links-list">
                   <li><a href="#" className="footer-link-anchor" style={{ color: '#8c8c8c' }} onClick={(e) => { e.preventDefault(); if (user) handleLogout(); else setIsAuthModalOpen(true); }}>{user ? 'Log Out' : 'Sign In'}</a></li>
                   <li><a href="#" className="footer-link-anchor" style={{ color: '#8c8c8c' }} onClick={(e) => { e.preventDefault(); setIsAuthModalOpen(true); }}>Create Account</a></li>
@@ -1435,8 +1448,15 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="footer-column">
-                <h4 style={{ color: '#ffffff' }}>About Us</h4>
+              <div className={`footer-column ${expandedFooterCols['about'] ? 'expanded' : ''}`}>
+                <h4 
+                  style={{ color: '#ffffff' }}
+                  className="footer-toggle-title"
+                  onClick={() => toggleFooterCol('about')}
+                >
+                  <span>About Us</span>
+                  <i className={`ri-arrow-down-s-line footer-chevron ${expandedFooterCols['about'] ? 'rotated' : ''}`}></i>
+                </h4>
                 <ul className="footer-links-list">
                   <li><a href="#" className="footer-link-anchor" style={{ color: '#8c8c8c' }} onClick={(e) => { e.preventDefault(); setActiveView('about'); }}>Our Mission</a></li>
                   <li><a href="#" className="footer-link-anchor" style={{ color: '#8c8c8c' }} onClick={(e) => { e.preventDefault(); setActiveView('about'); }}>Our Factories</a></li>
@@ -1445,8 +1465,15 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="footer-column">
-                <h4 style={{ color: '#ffffff' }}>Support</h4>
+              <div className={`footer-column ${expandedFooterCols['support'] ? 'expanded' : ''}`}>
+                <h4 
+                  style={{ color: '#ffffff' }}
+                  className="footer-toggle-title"
+                  onClick={() => toggleFooterCol('support')}
+                >
+                  <span>Support</span>
+                  <i className={`ri-arrow-down-s-line footer-chevron ${expandedFooterCols['support'] ? 'rotated' : ''}`}></i>
+                </h4>
                 <ul className="footer-links-list">
                   <li><a href="#" className="footer-link-anchor" style={{ color: '#8c8c8c' }} onClick={(e) => { e.preventDefault(); alert('Please refer to details at our stores.'); }}>Help Center</a></li>
                   <li><a href="#" className="footer-link-anchor" style={{ color: '#8c8c8c' }} onClick={(e) => { e.preventDefault(); }}>Shipping & Returns</a></li>
