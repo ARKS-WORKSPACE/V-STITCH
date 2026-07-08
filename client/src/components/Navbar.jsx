@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar({ 
@@ -21,6 +21,18 @@ export default function Navbar({
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [activeMegamenu, setActiveMegamenu] = useState(null); // null, 'women', 'men'
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const [animateCart, setAnimateCart] = useState(false);
+  const [prevCartCount, setPrevCartCount] = useState(cartCount);
+
+  useEffect(() => {
+    if (cartCount > prevCartCount) {
+      setAnimateCart(true);
+      const timer = setTimeout(() => setAnimateCart(false), 800);
+      return () => clearTimeout(timer);
+    }
+    setPrevCartCount(cartCount);
+  }, [cartCount, prevCartCount]);
 
   const handleNavClick = (view) => {
     setActiveView(view);
@@ -283,20 +295,25 @@ export default function Navbar({
               )}
             </button>
 
-            {/* Bag Button */}
-            <button 
+            {/* Bag Button with add to bag bounce/shake indication style */}
+            <motion.button 
               className="nav-action-btn" 
               onClick={onOpenCart} 
               aria-label="Bag items"
-              style={{ fontSize: '1.15rem' }}
+              style={{ fontSize: '1.15rem', position: 'relative' }}
+              animate={animateCart ? { 
+                scale: [1, 1.4, 0.9, 1.2, 1],
+                rotate: [0, -12, 12, -12, 0]
+              } : {}}
+              transition={{ duration: 0.6 }}
             >
-              <i className="ri-shopping-bag-2-line"></i>
+              <i className="ri-shopping-bag-2-line" style={{ transition: 'color 0.3s ease', color: animateCart ? '#87CEFA' : 'inherit' }}></i>
               {cartCount > 0 && (
-                <span className="nav-cart-badge" style={{ backgroundColor: 'var(--color-text-primary)', color: '#ffffff', width: '14px', height: '14px', fontSize: '0.6rem' }}>
+                <span className="nav-cart-badge" style={{ backgroundColor: animateCart ? '#87CEFA' : 'var(--color-text-primary)', color: animateCart ? 'var(--color-text-primary)' : '#ffffff', transition: 'background-color 0.3s ease, color 0.3s ease', width: '14px', height: '14px', fontSize: '0.6rem' }}>
                   {cartCount}
                 </span>
               )}
-            </button>
+            </motion.button>
           </div>
         </div>
 

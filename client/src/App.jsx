@@ -340,13 +340,11 @@ export default function App() {
       setCreatedOrder(order);
       setCart([]);
       setActiveView('success');
-      addToast('Order placed successfully!', 'success');
 
       // Reset checkout step
       setCheckoutStep(1);
     } catch (err) {
       console.error(err);
-      addToast('Error placing order.', 'info');
     }
   };
 
