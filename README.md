@@ -1,6 +1,6 @@
 # V-STITCH — Premium Vintage Wardrobe Staples
 
-V-STITCH is a premium, modern minimalist e-commerce web application styled after modern curated boutiques (like Everlane and Fasco). It supports custom apparel consignment submissions, seamless checkout, default shipping updates, and detailed order histories.
+V-STITCH is a premium, modern minimalist e-commerce web application styled after modern curated boutiques. It supports custom apparel consignment submissions, seamless checkout, default shipping updates, and detailed order histories.
 
 ---
 
