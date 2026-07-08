@@ -1502,6 +1502,7 @@ main {
   align-items: center;
   padding: 2rem;
   border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .cart-drawer-title {
@@ -1520,6 +1521,7 @@ main {
   padding: 1.25rem 2rem;
   background-color: var(--color-bg-subtle);
   border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .shipping-progress-text {
@@ -1636,6 +1638,7 @@ main {
 }
 
 .cart-drawer-footer {
+  flex-shrink: 0;
   border-top: 1px solid var(--color-border);
   padding: 2rem;
   background-color: var(--color-bg-subtle);
