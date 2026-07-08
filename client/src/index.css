@@ -2625,8 +2625,19 @@ main {
 
 @media (max-width: 768px) {
   .categories-strip-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    gap: 1.25rem;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    padding: 5px 0;
+    margin-bottom: 2rem;
+  }
+  .categories-strip-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+  .categories-strip-container .category-card-small {
+    flex: 0 0 160px; /* Force fixed width on small cards so they scroll neatly */
   }
 }
 
