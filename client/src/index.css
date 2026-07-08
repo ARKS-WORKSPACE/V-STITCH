@@ -3504,8 +3504,24 @@ main {
     scrollbar-width: none;
     padding: 10px 1rem !important;
   }
-  .sub-nav-container::-webkit-scrollbar {
-    display: none;
+  /* Mobile Cart Drawer Full Height Scroll */
+  .cart-drawer {
+    overflow-y: auto !important;
+    display: block !important;
+  }
+
+  .cart-items-list {
+    overflow-y: visible !important;
+    height: auto !important;
+    flex-grow: 0 !important;
+    padding: 1.5rem !important;
+  }
+
+  .cart-drawer-footer {
+    position: relative !important;
+    flex-shrink: 0 !important;
+    padding: 1.5rem !important;
+    margin-top: auto;
   }
 }
 
