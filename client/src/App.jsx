@@ -204,14 +204,12 @@ export default function App() {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.productId === product._id);
       if (existing) {
-        addToast(`Added another ${product.title} to bag`, 'success');
         return prevCart.map((item) =>
           item.productId === product._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
-      addToast(`Added ${product.title} to bag`, 'success');
       return [...prevCart, {
         productId: product._id,
         title: product.title,
