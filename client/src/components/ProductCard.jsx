@@ -134,6 +134,7 @@ export default function ProductCard({ product, onClick, onQuickAdd, isFavorite, 
 
         {/* Sustainability attribute label */}
         <span
+          className="product-card-attribute"
           style={{
             fontSize: '0.65rem',
             letterSpacing: '0.12em',

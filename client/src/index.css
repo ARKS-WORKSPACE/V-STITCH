@@ -3513,7 +3513,55 @@ main {
 
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem 0.5rem;
+    gap: 1rem 0.75rem;
+  }
+
+  .product-card-title {
+    font-size: 0.8rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .product-price-current {
+    font-size: 0.8rem !important;
+  }
+
+  .product-price-original {
+    font-size: 0.75rem !important;
+  }
+
+  .discount-pill {
+    font-size: 0.7rem !important;
+  }
+
+  .product-card-info {
+    padding-top: 6px !important;
+  }
+
+  .wishlist-heart-btn {
+    width: 28px !important;
+    height: 28px !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+
+  .wishlist-heart-btn i {
+    font-size: 0.85rem !important;
+  }
+
+  .badge-era {
+    top: 8px !important;
+    left: 8px !important;
+    font-size: 0.55rem !important;
+    padding: 2px 4px !important;
+  }
+
+  .product-card-attribute {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .categories-strip-container .category-card-small {
+    flex: 0 0 140px !important;
   }
 
   .order-card-header {
