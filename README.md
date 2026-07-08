@@ -23,32 +23,6 @@ V-STITCH is a premium, modern minimalist e-commerce web application styled after
 * **Backend**: Node.js, Express, JWT Authentication, BcryptJS.
 * **Database**: MongoDB (Mongoose) + Local JSON Database fallback.
 
----
-
-## API Endpoints List (12 routes)
-
-### Authentication & Profile (`/api/auth`)
-* `POST /api/auth/register` — Registers a new user.
-* `POST /api/auth/login` — Authenticates a user and returns a token.
-* `GET /api/auth/me` — Fetches current user details.
-* `PUT /api/auth/profile` — Updates user profile, password, or base64 profile picture.
-
-### Products Catalog (`/api/products`)
-* `GET /api/products` — Lists all clothes (supports search, filters, and price/date sorting).
-* `GET /api/products/:id` — Fetches details for a single item.
-* `GET /api/products/:id/similar` — Pulls similar product recommendations.
-* `POST /api/products` — Submits a new consignment clothing item (authenticated).
-
-### Orders (`/api/orders`)
-* `POST /api/orders` — Places a new order and decrements catalog stock (authenticated).
-* `GET /api/orders/my-orders` — Returns order history for the active user (authenticated).
-
-### General (`/api`)
-* `GET /api/vendors` — Lists bespoke tailoring partners.
-* `GET /api/status` — Returns database status (MongoDB vs. Local fallback).
-
----
-
 ## Setup & Running Locally
 
 ### Prerequisites
