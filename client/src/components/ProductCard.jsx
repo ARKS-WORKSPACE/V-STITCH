@@ -37,7 +37,7 @@ export default function ProductCard({ product, onClick, onQuickAdd, isFavorite, 
 
   return (
     <div className="product-card" onClick={() => onClick(product)} style={{ border: 'none', background: 'none' }}>
-      <div className="product-card-image-frame" style={{ borderRadius: '0px', border: '1px solid #f5f5f5', position: 'relative', width: '100%', aspectRatio: '4/5', overflow: 'hidden' }}>
+      <div className="product-card-image-frame" style={{ borderRadius: '0px', border: '1px solid #f5f5f5', position: 'relative', width: '100%', height: 0, paddingBottom: '125%', overflow: 'hidden' }}>
 
         {/* Wishlist Trigger */}
         <button
@@ -92,7 +92,7 @@ export default function ProductCard({ product, onClick, onQuickAdd, isFavorite, 
           alt={product.title}
           className="product-card-image"
           loading="lazy"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
 
